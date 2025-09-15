@@ -1,36 +1,36 @@
 import express from "express";
-import { fileURLToPath } from "url";
 import { dirname } from "path";
+import { fileURLToPath } from "url";
 import bodyParser from "body-parser";
-import ejs from "ejs";
-
 
 const app = express();
 const port = 3000;
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const todayDate = new Date("2025-09-15");
-const currentDay = todayDate.getDay();
-const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-var whatToDoToday = "";
+const currentDate = new Date();
+const currentDayOfWeek = currentDate.getDay();
+var toDo = "";
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-function learnDay() {
-    if ( currentDay === 0 || currentDay === 6) {
-        whatToDoToday = `It's ${dayNames[currentDay]}, - a weekend, lets party hard!`;
+function whatToDoToday () {
+    if (currentDayOfWeek == 0 || currentDayOfWeek == 6) {
+        toDo = "It's the weekend! Let's party hard bro!";
     } else {
-        whatToDoToday = `It's ${dayNames[currentDay]}, - a week day, lets work and earn!`;
+        toDo = "It's a working day. Work hard, earn your destiny!";
     }
-    return whatToDoToday;
-}
+    return toDo;
+};
 
 app.get("/", (req, res) => {
+    // res.sendFile(__dirname + "/views/index.ejs")
     res.render((__dirname + "/views/index.ejs"), 
-    { weekday: learnDay() }
-    );
+    {
+        response: whatToDoToday()
+    });
 });
 
-app.listen(port, (req, res) => {
-    console.log(`Server is running on port ${port}`);
-}); 
+app.listen(port, () => {
+    console.log(`Server is running on port: ${port}`);
+});
