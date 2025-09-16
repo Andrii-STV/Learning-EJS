@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passing data</title>
+</head>
+<body>
+    <h1>
+        Hey Bro!
+    </h1>
+
+        <% if (locals.firstName) { %>
+            <h4>
+                Alright, you're actually <%= firstName %>!
+            </h4>
+            <p>
+                There are <%= array %> letters in your name, bro :)
+            </p>
+        <% } %>
+
+        
+
+    
+    <form action="/submit" method="POST">
+        <label for="fName">Your Name</label>
+        <input type="text" name="fName" placeholder="e.g. John">
+        <label for="lName">Your Lastname</label>
+        <input type="text" name="lName" placeholder="e.g Doe">
+        <input type="submit" value="Get Started">
+    </form>
+</body>
+</html>
