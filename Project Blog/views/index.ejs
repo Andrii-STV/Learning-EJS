@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrew's Blogs</title>
+</head>
+<body>
+    <h1>
+        <%= test %>
+    </h1>
+    <form action="/submit" method="post">
+        <label for="post-name">Post Title</label>
+        <input type="text" name="post-name" placeholder="e.g My Blog" required>
+        <label for="post-content">Write Your Post</label>
+        <textarea name="post-content" rows="4" cols="50" placeholder="e.g This story happend to me 3 years before..." required></textarea>
+        <input type="submit" value="Publish Your Story">
+    </form>
+    
+    <form action="/blog" method="post">
+        <input type="submit" value="See all blogs">
+    </form>
+    
+</body>
+</html>

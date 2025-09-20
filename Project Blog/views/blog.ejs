@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+</head>
+<body>
+    <section>
+        <% if (locals.postName && locals.postContent) { 
+            if(postName.length != 0 && postContent.length != 0) {
+                for(i = 0; i < postName.length; i++) { %>
+                    <h4>
+                        <%= postName[i] %>
+                    </h4>
+                    <p>
+                        <%= postContent[i] %>
+                    </p>
+                    <form action="/delete" method="post">
+                        <input type="hidden" name="id" value="<%= i %>">
+                        <input type="submit" value="Delete Post">
+                    </form>
+                <% }} else { %>
+                    <p> Nothing here... Add your first blog </p>
+                <% } %>
+            
+        <% } else  { %>
+            <p>No posts yet...</p>
+            
+        <% } %>
+
+        <form action="/add-blog" method="post">
+            <input type="submit" value="Add New Blog">
+        </form>
+    </section> 
+
+</body>
+</html>
