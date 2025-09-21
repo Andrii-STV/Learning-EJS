@@ -20,6 +20,10 @@
                         <input type="hidden" name="id" value="<%= i %>">
                         <input type="submit" value="Delete Post">
                     </form>
+                    <form action="/edit" method="post">
+                        <input type="hidden" name="editId" value="<%= i %>">
+                        <input type="submit" value="Edit Post">
+                    </form>
                 <% }} else { %>
                     <p> Nothing here... Add your first blog </p>
                 <% } %>

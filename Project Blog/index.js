@@ -9,6 +9,7 @@ const port = 3000;
 const postNameArray = [];
 const postContentArray = [];
 
+
 app.use(bodyParser.urlencoded({ extended:true }));
 app.use(express.static("public"));
 
@@ -48,6 +49,19 @@ app.post("/blog", (req, res) => {
 
 app.post("/add-blog", (req, res) => {
     res.redirect("/");
+});
+
+app.post("/edit", (req, res) => {
+    const id = parseInt(req.body.editId);
+    const textToEdit = postContentArray[id];
+    res.render("edit-blog.ejs", {
+        editTextEjs: textToEdit,
+        sendingOriginalPostId: id
+    });
+});
+
+app.post("/save", (req, res) => {
+    
 });
 
 
