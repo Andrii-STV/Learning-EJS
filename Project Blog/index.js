@@ -6,8 +6,8 @@ import bodyParser from "body-parser";
 const app = express();
 const port = 3000;
 //const __dirname = dirname(fileURLToPath(import.meta.url));
-const postNameArray = [];
-const postContentArray = [];
+let postNameArray = [];
+let postContentArray = [];
 
 
 app.use(bodyParser.urlencoded({ extended:true }));
@@ -61,7 +61,26 @@ app.post("/edit", (req, res) => {
 });
 
 app.post("/save", (req, res) => {
+    // let index = parseInt(postContentArray.indexOf(req.body["editing"]));
+    // console.log(index);
+    // if (index !== -1) {
+    //     postContentArray[index] = req.body["editing"];
+    // } else {
+    //     console.log("something wrong with if stmt");
+    // }
     
+    postContentArray[req.body["postContentIdToChange"]] = req.body["editing"];
+    
+    
+    // res.render("blog.ejs", {
+    //     postName: postNameArray,
+    //     postContent: postContentArray
+    // });
+
+    res.render("blog.ejs", {
+        postName: postNameArray,
+        postContent: postContentArray
+    });
 });
 
 

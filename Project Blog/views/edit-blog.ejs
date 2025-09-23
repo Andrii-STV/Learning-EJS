@@ -8,7 +8,7 @@
 <body>
     <h1>Testing Editing</h1>
     <form action="/save" method="post">
-        <input type="hidden" name="" value="<%= sendingOriginalPostId %>">
+        <input type="hidden" name="postContentIdToChange" value="<%= sendingOriginalPostId %>">
         <label for="editing">Edit Your Post Below</label>
         <textarea name="editing" rows="4" cols="50"><%= editTextEjs %></textarea>
         <input type="submit" value="Save Post">
