@@ -1,18 +1,30 @@
-<!DOCTYPE html>
+<%- include("partials/header.ejs") %>
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Blog</title>
 </head>
-<body>
-    <h1>Testing Editing</h1>
-    <form action="/save" method="post">
-        <input type="hidden" name="postContentIdToChange" value="<%= sendingOriginalPostId %>">
-        <label for="editing">Edit Your Post Below</label>
-        <textarea name="editing" rows="4" cols="50"><%= editTextEjs %></textarea>
-        <input type="submit" value="Save Post">
-    </form>
-    <p>This Post got his original ID: <%= sendingOriginalPostId %></p>
-</body>
-</html>
+<body> -->
+<div class="subpage-hero-container">
+    <section class="subpage-hero">
+        <h1 class="subpage-heading">Edit Your Blog</h1>
+        <p class="subpage-hero-description">Edit your blog easily and see your updates instantly during your session</p>
+    </section>
+</div>
+<div class="blog-container">
+    <div class="edit-blog-inner">
+        <form action="/save" method="post">
+            <input type="hidden" name="postContentIdToChange" value="<%= sendingOriginalPostId %>">
+            
+            <label for="editing">Edit Your Post Below</label>
+            <textarea class="edit-textarea" name="editing" rows="4" cols="50"><%= editTextEjs %></textarea>
+            <input class="edit-post-button" type="submit" value="Save Post">
+        </form>
+        <p class="post-id">This Post got his original ID: <%= sendingOriginalPostId %></p>
+    </div>
+</div>
+
+<%- include("partials/footer.ejs") %>

@@ -8,22 +8,65 @@
     <title>Andrew's Blogs</title>
 </head>
 <body> -->
+<div class="wrapper">
+    <section class="hero">
+
+      <div class="hero-text">
+        <h1>Meet Andrew - your next perfect hire</h1>
+        <div class="hero-cta">
+          <div class="cta-text">Contact me through email:</div>
+          <a class="button primary-button" href="mailto:stavnichenkoa2000@gmail.com">Reach me today</a>
+        </div>
+      </div>
+      
+
+      <div class="hero-description">
+        <p>Bringing me on means getting a fast learner who delivers.<br><br>From zero to building this website in one month, I’ve proven adaptability with <span class="light-text-accent">Node.js</span>, <span class="light-text-accent">Express</span>, and <span class="light-text-accent">EJS</span>, backed by 5+ years of <span class="light-text-accent">WordPress</span> experience.<br><br>More than skills, you gain a driven asset who grows quickly and pushes results.</p>
+      </div>
+
+      <div class="hero-image">
+        <img src="/media/my photo.png">
+      </div>
+
+    </section>
+    
+</div>
+
+
     <div class="default-container">
         <div class="home-form">
             <h2 class="home-header">
                 <%= test %>
             </h2>
-            <form action="/submit" method="post">
-                <label for="post-name">Post Title</label>
-                <input type="text" name="post-name" placeholder="e.g My Blog" required>
-                <label for="post-content">Write Your Post</label>
-                <textarea name="post-content" rows="4" cols="50" placeholder="e.g This story happend to me 3 years before..." required></textarea>
-                <input type="submit" value="Publish Your Story">
-            </form>
-            
-            <form action="/blog" method="post">
-                <input type="submit" value="See all blogs">
-            </form>
+            <div class="main-section">
+                <div class="main-form-container">
+                    <form class="home-form-widget" action="/submit" method="post">
+                        <label for="post-name">Post Title</label>
+                        <input class="dark-form-field" type="text" name="post-name" placeholder="e.g My Blog" required>
+                        <label class="textarea-label" for="post-content">Write Your Post</label>
+                        <textarea class="dark-form-field" name="post-content" rows="4" cols="50" placeholder="e.g This story happend to me 3 years before..." required></textarea>
+                        <input class="button primary-button dark-form-button" type="submit" value="Publish Your Story">
+                    </form>
+                    <div>
+                        <h3 class="all-blogs-heading">Check out all blogs</h3>
+                        <p class="all-blogs-description">Blog page is rendered with all blogs added during the session. Play around to see how it works!</p>
+                    </div>
+                    <form action="/blog" method="post">
+                        <input class="button primary-button" type="submit" value="See all blogs">
+                    </form>
+                </div>
+                <div class="instructions">
+                    <h3>Stack Eplained</h3>
+                    <p class="default-paragraph">Curious what’s under the hood? This is where the magic starts — the stack that fuels my projects and keeps ideas moving from concept to production.</p>
+                    <ul>
+                        <li><b>Node.js</b> – Core engine handling all main logic</li>
+                        <li><b>Express</b> – Fast and minimal routing framework</li>
+                        <li><b>body-parser</b> – Smooth data flow between client and server</li>
+                        <li><b>In-Memory Runtime</b> – Everything works live within the current session, no database needed</li>
+                    </ul>
+                    <p class="default-paragraph stack-text-paragraph"><b>P.S.: </b>Seeing your data disappear after a session? That’s on purpose — databases are next on my list. I learned Node.js and Express in a month, so give it a week and udated functional will be live!</p>
+                </div>
+            </div>
         </div>
     </div>
     

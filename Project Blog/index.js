@@ -15,7 +15,7 @@ app.use(express.static("public"));
 
 app.get("/", (req, res) => {
     res.render("index.ejs", {
-        test: "Testing Template Connection..."
+        test: "Add your first blog to get it rolling..."
     });
 });
 

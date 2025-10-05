@@ -1,42 +1,62 @@
-<!DOCTYPE html>
+<%- include("partials/header.ejs") %>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blogs</title>
 </head>
-<body>
-    <section>
-        <% if (locals.postName && locals.postContent) { 
-            if(postName.length != 0 && postContent.length != 0) {
-                for(i = 0; i < postName.length; i++) { %>
-                    <h4>
-                        <%= postName[i] %>
-                    </h4>
-                    <p>
-                        <%= postContent[i] %>
-                    </p>
-                    <form action="/delete" method="post">
-                        <input type="hidden" name="id" value="<%= i %>">
-                        <input type="submit" value="Delete Post">
-                    </form>
-                    <form action="/edit" method="post">
-                        <input type="hidden" name="editId" value="<%= i %>">
-                        <input type="submit" value="Edit Post">
-                    </form>
-                <% }} else { %>
-                    <p> Nothing here... Add your first blog </p>
+<body> -->
+    <div class="subpage-hero-container">
+        <section class="subpage-hero">
+            <h1 class="subpage-heading">Blogs</h1>
+            <p class="subpage-hero-description">Create and manage your blogs in real time. Everything you do stays active while your session lasts.</p>
+        </section>
+    </div>
+    <div class="blog-container">
+        <div class="blog-inner-container">
+            <div class="blog-functional-description">
+                <h3 class="blog-heading">See all blogs here</h3>
+                <p class="light-description">View your blogs here — you can edit or delete them anytime during your session.</p>
+                <p class="light-description">Ready to create a new blog or head back home? Just click the button below.</p>
+                <form action="/add-blog" method="post">
+                    <input class="button primary-button dark-form-button" type="submit" value="Add New Blog">
+                </form>
+            </div>
+            <section class="blog-cards">
+                <% if (locals.postName && locals.postContent) { 
+                    if(postName.length != 0 && postContent.length != 0) {
+                        for(i = 0; i < postName.length; i++) { %>
+                            <div class="blog-card">
+                                <div class="blog-badge">blog post</div>
+                                <h4>
+                                    <%= postName[i] %>
+                                </h4>
+                                <p>
+                                    <%= postContent[i] %>
+                                </p>
+                                <div class="card-buttons">
+                                    <form action="/delete" method="post">
+                                        <input type="hidden" name="id" value="<%= i %>">
+                                        <input class="button primary-button" type="submit" value="Delete Post">
+                                    </form>
+                                    <form action="/edit" method="post">
+                                        <input type="hidden" name="editId" value="<%= i %>">
+                                        <input class="button secondary-button" type="submit" value="Edit Post">
+                                    </form>
+                                </div>
+                            </div>
+                        <% }} else { %>
+                            <p> Nothing here... Add your first blog </p>
+                        <% } %>
+                    
+                <% } else  { %>
+                    <p>No posts yet...</p>
+                    
                 <% } %>
-            
-        <% } else  { %>
-            <p>No posts yet...</p>
-            
-        <% } %>
+            </section>
+        </div>
+    </div>
 
-        <form action="/add-blog" method="post">
-            <input type="submit" value="Add New Blog">
-        </form>
-    </section> 
+<%- include("partials/footer.ejs") %>
 
-</body>
-</html>
